@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exman Legendary Barbershop | Premium Grooming in Kamawewe</title>
+    <meta name="description" content="Professional barber services at Mawewe Chiefs Sport Ground. Precision cuts, premium styling for men and kids. Open daily until 7PM.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0A0A0A;
+            --primary-gold: #C5A572;
+            --primary-cream: #F5F1E8;
+            --secondary-gray: #2A2A2A;
+            --accent-red: #8B1A1A;
+            --text-light: #E8E6E1;
+            --text-gray: #A0A0A0;
+            --shadow-subtle: 0 4px 30px rgba(0, 0, 0, 0.08);
+            --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius-sm: 8px;
+            --border-radius-lg: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-light);
+            background-color: var(--primary-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-cream);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), transparent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background-color: transparent;
+            color: var(--primary-cream);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition-smooth);
+            border: 2px solid var(--primary-gold);
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(197, 165, 114, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+            border: none;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 0;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid rgba(197, 165, 114, 0.1);
+        }
+        
+        header.scrolled {
+            padding: 18px 0;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-cream);
+            text-decoration: none;
+        }
+        
+        .logo-main {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-accent {
+            color: var(--primary-gold);
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-gold);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9));
+            margin-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://logomakerr.ai/blog/wp-content/uploads/2023/11/small-barber-pole-sticked-on-the-wall-or-probably-a-barbershop-logo.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: rgba(197, 165, 114, 0.1);
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(197, 165, 114, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary-cream);
+        }
+        
+        .hero-location {
+            font-size: 1.4rem;
+            color: var(--primary-gold);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero-location i {
+            font-size: 1.2rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-hours {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(42, 42, 42, 0.6);
+            border-radius: var(--border-radius-sm);
+            border-left: 4px solid var(--primary-gold);
+            display: inline-block;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--secondary-gray);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23C5A572" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+            opacity: 0.3;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary-cream);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        
+        .local-highlight {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(197, 165, 114, 0.1), transparent);
+            z-index: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary-gray);
+            padding: 40px 30px;
+            border-radius: var(--border-radius-lg);
+            transition: var(--transition-smooth);
+            position: relative;
+            border: 1px solid rgba(197, 165, 114, 0.1);
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary-gold);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: rgba(197, 165, 114, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-cream);
+        }
+        
+        .service-price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin: 25px 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .service-note {
+            font-style: italic;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Gallery Section */
+        .gallery-slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 60px auto 0;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .gallery-slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 600px;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+            color: white;
+        }
+        
+        .slide-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-cream);
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-gray);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary-gold);
+            transform: scale(1.3);
+            border-color: rgba(197, 165, 114, 0.3);
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(10, 10, 10, 0.7);
+            border: 2px solid var(--primary-gold);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: var(--primary-cream);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            z-index: 10;
+        }
+        
+        .slider-btn:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-dark);
+        }
+        
+        .prev-btn {
+            left: 30px;
+        }
+        
+        .next-btn {
+            right: 30px;
+        }
+        
+        /* Contact Section */
+        .booking {
+            text-align: center;
+            background-color: var(--secondary-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .booking::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/605804261_1974986763452474_4967571440600288187_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEWzDrS6BDnObj1pJtD_CKlnAtl6pCG3p-cC2XqkIbenxaijgaMiPr1BmXFk8vFysh-oGr6gkRu6mO2u-rGRxtO&_nc_ohc=CyjFpbE2svcQ7kNvwEhhMuu&_nc_oc=AdlUs9s_3FL7HsLs1iuWL7UOOZTUi0bUU5N6FbNctNlkCcOvNq1JlZ7x5gVVOlcsHn1TDvXlmgZw6r6qTIMUmsFs&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=LlVhdwkFG6JfV_Zx9G9rxA&oh=00_AfpSHKN1E6NhoFbYCWTnl8PLUaEx_J4enzBdf6AcIV1cZQ&oe=6977CB71');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .booking-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .booking h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-cream);
+        }
+        
+        .booking p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+        }
+        
+        .open-hours {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            margin-top: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background-color: rgba(197, 165, 114, 0.1);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(197, 165, 114, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-gray);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(197, 165, 114, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo .logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-location {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-gold);
+            background-color: rgba(197, 165, 114, 0.1);
+            border-color: rgba(197, 165, 114, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .loading-spinner i {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .about-content {
+                gap: 50px;
+            }
+            
+            .gallery-slider {
+                height: 550px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .gallery-slider {
+                height: 500px;
+            }
+            
+            .slide-overlay {
+                padding: 30px;
+            }
+            
+            .slider-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--primary-dark);
+                padding: 100px 40px 40px;
+                transition: left 0.4s ease;
+                z-index: 1000;
+                overflow-y: auto;
+                border-right: 1px solid rgba(197, 165, 114, 0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 30px;
+                align-items: flex-start;
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-location {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+            }
+            
+            .booking h2 {
+                font-size: 2.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .gallery-slider {
+                height: 400px;
+            }
+            
+            .slide-overlay {
+                padding: 20px;
+            }
+            
+            .slide-title {
+                font-size: 1.5rem;
+            }
+            
+            .slider-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .prev-btn {
+                left: 15px;
+            }
+            
+            .next-btn {
+                right: 15px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .service-card {
+                padding: 30px 25px;
+            }
+            
+            .about-image img {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .hero {
+                min-height: 90vh;
+                margin-top: 70px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .service-card {
+                padding: 25px 20px;
+            }
+            
+            .service-price {
+                font-size: 2.2rem;
+            }
+            
+            .gallery-slider {
+                height: 300px;
+            }
+            
+            .slider-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .prev-btn {
+                left: 10px;
+            }
+            
+            .next-btn {
+                right: 10px;
+            }
+            
+            .slide-overlay {
+                padding: 15px;
+            }
+            
+            .slide-title {
+                font-size: 1.2rem;
+            }
+            
+            .booking h2 {
+                font-size: 2.2rem;
+            }
+            
+            .booking p {
+                font-size: 1rem;
+            }
+            
+            .open-hours {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .hero-hours {
+                padding: 15px;
+                margin-top: 30px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .copyright {
+                padding-top: 30px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-location {
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-slider {
+                height: 250px;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .booking h2 {
+                font-size: 1.9rem;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover {
+                transform: none;
+            }
+            
+            .service-card:hover {
+                transform: none;
+            }
+            
+            .slider-btn:hover {
+                background-color: rgba(10, 10, 10, 0.7);
+                color: var(--primary-cream);
+            }
+            
+            .social-icons a:hover {
+                transform: none;
+            }
+            
+            /* Increase tap targets for mobile */
+            nav ul li a {
+                padding: 10px 0;
+            }
+            
+            .slider-dot {
+                width: 14px;
+                height: 14px;
+            }
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <i class="fas fa-spinner"></i>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-main">
+                    <span class="logo-accent">EXMAN</span> LEGENDARY
+                </div>
+                <div class="logo-tagline">Professional Barbershop</div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://wa.me/27761703713?text=Hi%2C%20I%27d%20like%20to%20book%20a%20haircut%20at%20Exman%20Legendary%20Barbershop%20in%20Kamawewe" class="btn btn-whatsapp" target="_blank" aria-label="Book on WhatsApp">
+                        <i class="fab fa-whatsapp"></i> Book Now
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">PREMIUM GROOMING</div>
+                <h1>Exman Legendary Barbershop</h1>
+                <div class="hero-location">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Kamawewe, Mgobodz
+                </div>
+                <p>Precision barbering with an artisan's touch. Located at Mawewe Chiefs Sport Ground, we deliver legendary styles that define confidence.</p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/27761703713?text=Hi%2C%20I%27d%20like%20to%20book%20a%20haircut%20at%20Exman%20Legendary%20Barbershop%20in%20Kamawewe" class="btn btn-whatsapp" target="_blank" aria-label="Book appointment on WhatsApp">
+                        <i class="fab fa-whatsapp"></i> Book Appointment
+                    </a>
+                    <a href="#services" class="btn">
+                        <i class="fas fa-scissors"></i> View Services
+                    </a>
+                </div>
+                <div class="hero-hours">
+                    <i class="fas fa-clock"></i> Open Daily • 9AM - 7PM
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Artisan Barbering</h2>
+            <p class="section-subtitle">Where traditional technique meets contemporary style in the heart of Kamawewe.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Legendary Craftsmanship</h3>
+                    <p>At <span class="local-highlight">Exman Legendary Barbershop</span>, located in <span class="local-highlight">Kamawewe, Mgobodz</span>, we believe grooming is an art form. Each cut is a reflection of precision, attention to detail, and deep understanding of style.</p>
+                    <br>
+                    <p>Our space at the <span class="local-highlight">Mawewe Chiefs Sport Ground</span> has become more than a barbershop—it's a community institution where quality craftsmanship meets genuine connection.</p>
+                    <br>
+                    <p>With years of honed expertise, we specialize in precision fades, clean line-ups, and tailored styles that complement each client's unique features and personality.</p>
+                    <br>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-map-marker-alt"></i> Visit Our Location
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/616231185_1984980205786463_5777184873523623840_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHc9DZEzEIjQxOtPgsdz_1LNLrL09BCe480usvT0EJ7j9Zxht_Ab7V6F0wSPEjWOXPYcwphssOgAju-zoL-6qG1&_nc_ohc=UNgoMHFvvr4Q7kNvwF77DOJ&_nc_oc=AdlziJ66fQMC4bG21g4NM58jMnUs5wzKYYkIdrjRjpAjuFsyNi3Ky7cj29B3ifMXKcjzoF87xueKsq8Hah2tqWkK&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=oKlxRNn_iF8notUuaNNdUA&oh=00_AfqTQkXkXArv_4XxITSQ9XiFYTClXm0ySJW6YMPb943L1w&oe=6977D532" alt="Master barber at work" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Premium Services</h2>
+            <p class="section-subtitle">Invest in quality craftsmanship with our curated grooming services.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Precision Haircut</h3>
+                    <p>Expert cut with consultation, shampoo, and professional styling for a sharp, lasting look.</p>
+                    <div class="service-price">R30</div>
+                    <p class="service-note">Traditional cut without coloring</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Cut with Color</h3>
+                    <p>Complete haircut service with premium coloring to enhance your style and cover grays.</p>
+                    <div class="service-price">R50</div>
+                    <p class="service-note">Includes professional dye application</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Junior Grooming</h3>
+                    <p>Patient, gentle approach for children with age-appropriate styling and a comfortable experience.</p>
+                    <div class="service-price">R30</div>
+                    <p class="service-note">Ages 2-6, without coloring</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Junior Color</h3>
+                    <p>Specialized children's cut with safe, gentle coloring options for special occasions.</p>
+                    <div class="service-price">R40</div>
+                    <p class="service-note">Includes child-safe coloring products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Craftsmanship Gallery</h2>
+            <p class="section-subtitle">A visual showcase of precision cuts and legendary styles crafted in Kamawewe.</p>
+            <div class="gallery-slider-container">
+                <div class="gallery-slider" id="gallerySlider">
+                    <!-- Slides populated by JavaScript -->
+                </div>
+                <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next-btn" id="nextBtn" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="slider-nav" id="sliderNav">
+                <!-- Dots populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="booking" id="contact">
+        <div class="container">
+            <div class="booking-content">
+                <h2>Experience Legendary Grooming</h2>
+                <p>Reserve your appointment for precision barbering that elevates your style. Connect with us directly via WhatsApp for scheduling.</p>
+                <a href="https://wa.me/27761703713?text=Hi%2C%20I%27d%20like%20to%20book%20a%20haircut%20at%20Exman%20Legendary%20Barbershop%20in%20Kamawewe" class="btn btn-whatsapp" target="_blank" aria-label="Book appointment on WhatsApp">
+                    <i class="fab fa-whatsapp"></i> Secure Your Appointment
+                </a>
+                <div class="open-hours">
+                    <i class="fas fa-calendar-alt"></i> 7 Days a Week • 9:00 AM - 7:00 PM
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <div class="logo-main">
+                            <span class="logo-accent">EXMAN</span> LEGENDARY
+                        </div>
+                        <div class="logo-tagline">Professional Barbershop</div>
+                    </a>
+                    <div class="footer-location">
+                        <p>Mawewe Chiefs Sport Ground</p>
+                        <p>Kamawewe, Mgobodz</p>
+                        <p style="margin-top: 15px; color: var(--primary-gold);">Open Daily: 9AM - 7PM</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--primary-cream); margin-bottom: 20px; font-size: 1.2rem;">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="#home" style="color: var(--text-gray); text-decoration: none; transition: var(--transition-smooth); display: inline-block; padding: 5px 0;">Home</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#services" style="color: var(--text-gray); text-decoration: none; transition: var(--transition-smooth); display: inline-block; padding: 5px 0;">Services</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#gallery" style="color: var(--text-gray); text-decoration: none; transition: var(--transition-smooth); display: inline-block; padding: 5px 0;">Gallery</a></li>
+                        <li><a href="#contact" style="color: var(--text-gray); text-decoration: none; transition: var(--transition-smooth); display: inline-block; padding: 5px 0;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--primary-cream); margin-bottom: 20px; font-size: 1.2rem;">Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/27761703713" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p style="color: var(--text-gray); margin-top: 25px; font-size: 0.9rem;">Direct Line: <a href="tel:+27761703713" style="color: var(--primary-gold); text-decoration: none;">+27 76 170 3713</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Exman Legendary Barbershop. All rights reserved.</p>
+                <p style="margin-top: 10px;">Craftsmanship in Every Cut • Kamawewe, Mgobodz</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Exman Legendary Barbershop",
+        "image": "https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/610639560_1977839409833876_8166893222083721165_n.jpg",
+        "description": "Professional barber services at Mawewe Chiefs Sport Ground. Precision cuts, premium styling for men and kids.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kamawewe",
+            "addressRegion": "Mgobodz",
+            "streetAddress": "Mawewe Chiefs Sport Ground"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-23.876",
+            "longitude": "30.234"
+        },
+        "url": "",
+        "telephone": "+27761703713",
+        "priceRange": "R30 - R50",
+        "openingHours": "Mo-Su 09:00-19:00",
+        "sameAs": []
+    }
+    </script>
+
+    <script>
+        // Gallery images - Updated with all provided images
+        const galleryImages = [
+             { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/610639560_1977839409833876_8166893222083721165_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEC0DhEVPDbdD-gVXsXsOsjU5byeMhTi-ZTlvJ4yFOL5upv06-shW6-EHqoPkD6TFjmctsfgmDbg0cVYbRzwnNh&_nc_ohc=0Fbkbfnz2oAQ7kNvwEVs01v&_nc_oc=AdnF0-CGitCaxP88uQkbgmT64lXv7hm9kn01hdjVigTjAn5LINm7w9yTvTlNAMWmZWRypLq_bw9sAQOmvoWnIVQo&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=wGMBPSD8C_OjK_NUJPgqvw&oh=00_Afqi2RN1g5ypIyrWFUfq_QbET-BmsZpddRsXkkOCpPSI0g&oe=6977D923', 
+                caption: 'Signature Haircut' 
+            },
+            // Original images
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/619194045_1989144028703414_7653416719997560121_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG-Zykk-sLvZ6d5W1ApNpQNGejTBz8o4A4Z6NMHPyjgDlj1Nd4qBDkaq2l8OVsZ6cOpE9oM9UAUjDf02AEpXs53&_nc_ohc=mmH6KojfT1gQ7kNvwEh89Lr&_nc_oc=Adk7-AaUJwLacwm3WJqvuhLo1_yE8axhqfOzoPjSIUgK9UefIzwQaPg4qJNLZ9VE3Sdwz4TwpoX-VH_RlM7YyIRn&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=JrhsgG2OQZTC-XKiHfzu6Q&oh=00_AfreppVtK67dw2RnTnERBHMC2j_LG5MVh4sU4GCttisPvw&oe=6977D121', 
+                caption: 'Legendary Fade Cut' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/616165227_1985118685772615_5303799633788911887_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFzhWCV2bvnyZW3-lYDGJyjZbRWZQHNzrlltFZlAc3OuRHeCS92yPj8PQlEB8cIdsG7_6nsZJof-JTkD8OXgwQg&_nc_ohc=CvtxPemZ7rkQ7kNvwFXvNaR&_nc_oc=AdncWDFuZmsDn2JmCI8IA9md8omwvofN7V75yOqNmT4k6zLo-5_fzm00_mAS_lcQhiFOY1WPgmgyMTVkwB_Qvpjn&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=oKlxRNn_iF8notUuaNNdUA&oh=00_AfrxXneixigU_sUMQEkt-l9Q-Faq3r8mbPIyGRuXPV5vKQ&oe=6977F33F', 
+                caption: 'Clean Line-Up Work' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/615135460_1984980165786467_6247975170665038573_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFLWqo7G56IZYfna0uuTppQvhwSNxmGmRC-HBI3GYaZEMSJzXElnfQgIZ1mYhpA2MPkQGY0Gez452K2a_JGH5nK&_nc_ohc=rJoVH4GfThUQ7kNvwHv-1gH&_nc_oc=AdnTZ48kn6XQj41oetuivGH9bV1z02JybeJKGe_nNKY1TWGVyCggs1j38kF94lIASgE2oregGSrwTO1rhmf9b6cM&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=oKlxRNn_iF8notUuaNNdUA&oh=00_Afo-8rtaHZekkyhb0qTDKQRes_mv0-3lJmzVsHlgiPvBOw&oe=6977DC95', 
+                caption: 'Precision Barber Work' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/616231185_1984980205786463_5777184873523623840_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHc9DZEzEIjQxOtPgsdz_1LNLrL09BCe480usvT0EJ7j9Zxht_Ab7V6F0wSPEjWOXPYcwphssOgAju-zoL-6qG1&_nc_ohc=UNgoMHFvvr4Q7kNvwF77DOJ&_nc_oc=AdlziJ66fQMC4bG21g4NM58jMnUs5wzKYYkIdrjRjpAjuFsyNi3Ky7cj29B3ifMXKcjzoF87xueKsq8Hah2tqWkK&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=oKlxRNn_iF8notUuaNNdUA&oh=00_AfqTQkXkXArv_4XxITSQ9XiFYTClXm0ySJW6YMPb943L1w&oe=6977D532', 
+                caption: 'Professional Barber Service' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/615767995_1983577749260042_1128522252981518750_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE6WlHe6QhraJpNvyFlek7T0IUbL09gBfvQhRsvT2AF-2Rc25Iz7vpb3otLmtyjCWYX_vkHb3cVxVrtavJ4T6E3&_nc_ohc=an3ME_ObrngQ7kNvwFfq0wG&_nc_oc=AdmuDG20Z3KsdX4pgNSME0pXHQFyfPTH2V1eUePrBC0zLxzc80cyws_z5Pf-PZYSkP41u8q4OkE-MlX8BCzRsUFW&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=kukStF4x9hiZLiItLSMr7w&oh=00_Afq0embNU--iPyPNoWeXji025b-JMz20jo3JPNBdRFORnQ&oe=6977F0DD', 
+                caption: 'Detailed Hair Design' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/613477268_1983566342594516_1791672777459915957_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHgSMbLz_m7UaJxqJn9rVul5_i1F4u1UFnn-LUXi7VQWemHm5GQE4ZJfknosVGlQLIkWkLQsQfBWnqS0796Nmz5&_nc_ohc=QMD_b4sDnxoQ7kNvwFNs28G&_nc_oc=AdkOiNINFDgZSf4V1dcA21wQL8BeE8iy4G_1NpL0rdwZy3UZvSHZCA7aMJFZPMjw7kZNLL-6dte7ksiigR5M8HFj&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=kukStF4x9hiZLiItLSMr7w&oh=00_Aforvxsp-OVyd4VOo0HDsZ-NdZrql6SUijeErYTZ7M1jIQ&oe=6977D0E5', 
+                caption: 'Expert Fade Technique' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/614942916_1983564685928015_8814894551072815722_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEg-EyueBXg4rzGJNXH_SA4qZtwQtMUFKCpm3BC0xQUoEThlfEblAxGnc9t2CzgzfuBHu0bttjCJt9hefcYwkFY&_nc_ohc=gVCnyP7ok-4Q7kNvwHaVgCQ&_nc_oc=AdkTqFFQBkQr1emKCL9OlJYrJt8fEYKBJQNuX4gS5WPP5UXfV69jvfY1HaVvszgC3mgi56H3gRicQy6EYE2PJyzy&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=Ax9062JSFFnn3stS68A1Fg&oh=00_AfqvNSGq5ZV2A6CCOhKDTcz2GcXslSLGuDgqiCl0oCumag&oe=6977EECD', 
+                caption: 'Sharp Line Work' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/615173826_1982758809341936_2468752147036593000_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHsWYxWqGdLFLJAzPKRFcIo39lG8BayMPLf2UbwFrIw8tFTNPdbHv6cFUaSanFF5e7krGohAgBnMOk-eXrOiObf&_nc_ohc=MR_VNaqO5B8Q7kNvwHCWSo-&_nc_oc=AdmOGEkrTqzUbQ07wzrGdcJq9JbsivT9ZDpyn7Fw_-bItO2CwS6ZD6YZSdBLy3oz0Y9fEcYCZ8vrAj_SCi5X5u-k&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=s8lAv6Y1bkMfRw3-cutUzg&oh=00_AfrE3L_PyFP6Zs6RsbH9ONXnUhtR49Pvi4NgaTeGsZ0vJA&oe=6977D33D', 
+                caption: 'Clean Shave Service' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/613122568_1981286409489176_5716435388712808413_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGh2tjcum4PBABleWPWq1nZPGoSR2kr2dg8ahJHaSvZ2CjZQ7NRd8PRVMtF14w0Enyvr1Q0cMVWbckw0bIvE2G2&_nc_ohc=fAtpd1S-cUcQ7kNvwG245nP&_nc_oc=AdkJ3NzlSMbVlpiPh6rQQQnFh0Dm4Ku5qwy4PdrIcCMIIP6W5x484fmyeuhDIxt4rURXn9PccRfmCcOeElUXN6tm&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=FwA8GY5O3Qv54NYiELHsew&oh=00_AfrBKB5uNW-C3wjd-4zjU18lZ8Kwu0lTZPqzL9wmXsA3bQ&oe=6977E446', 
+                caption: 'Fresh Style Transformation' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/608665750_1977025153248635_450251065097891179_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGYXD_Zl6DYRV929IxkyCvgPxti-ov95jY_G2L6i_3mNt6UuYn3doEyn3lXgLPnoIDfXmyz9M9TcjKayFPEwNd1&_nc_ohc=8G0KNxoaifoQ7kNvwHptthy&_nc_oc=AdmAoK-KHcEn-tBhg59QK73R97xFMD3yusxpBp9kcheOtCfA5MMXEI1eM_pwsJrAYs2xMG_ZSQQ23TA2UQJ1ousJ&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=9L9647mq4X1qKoW62ZXGBA&oh=00_Afq-dSSVLjHWL9VSbdcjnT4unybT-P-jLkzd_NDi2vftmw&oe=6977FB59', 
+                caption: 'Precision Cutting' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/607640621_1972613010356516_8500835521277452573_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF5y19k8pHSQC59xm5LX5pFIgFPFWuIkbAiAU8Va4iRsGN2o8vcJagawVnYCxxI_1h1yfQI0Z5J6OoNFzQvFFR8&_nc_ohc=9NLX7R3vBBsQ7kNvwHI5Bzx&_nc_oc=AdmOBJt0m5wkGXM6IrguwIiVQn5vd7cSH7J0i4jU6GokaRz95mcZFONl-7LDh0ZNLotTS-NDXGP5YdPWLzUffsrY&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=DORlaBB64CMEw5EdSzd9oA&oh=00_Afpv8GxNvEAc0mlgrG9BTvn_tAk9Wgks6VDGJwg3JGH8hA&oe=6977EEC1', 
+                caption: 'Master Barber Artistry' 
+            },
+            // Newly added images
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/597850942_1961805514770599_7693502269197437006_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHJMdvkUNcE6OX7_AJoA3cMdfRCxxt5xVd19ELHG3nFV9TvIQprtOA7Ss499IDOvatB2ahfLlz4JJvAKTN4D9I5&_nc_ohc=nxkO9ez4Vp4Q7kNvwHjSRF7&_nc_oc=AdlVytEnJcZ2jS0gkKtxomJkNSICKvOixsCiynsHll6CKLHdMTIH2OcsgA6bero5VtL_72DkJcomBUE5ls0wpoTl&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=gr0JUTpCBTuH7EFJ_2iQ7w&oh=00_AfoqjMEhvIZ41CH41KL_sE_wsupuUPPRVi4JfPW6e6tdNw&oe=6978005D', 
+                caption: 'Classic Style' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/595132800_1957196978564786_8851442645028550876_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFN6VkR8LYv36dtwMEXIDibAzCPzmnFK9kDMI_OacUr2YzAc7-BqFDJfbdnBu3r0strfT-p2crEL4V6fX18OYTK&_nc_ohc=9oqxceqoBAEQ7kNvwGo7stO&_nc_oc=Adn61R-MeEgKwDIor6wBx5OO3WYb8coL9ZmNYtAHGPFX03v9C7R2q7ke2i79SBAhnJdLvEONhdKhd9w_QH-zgPIV&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=SUxUfP612fvgcU3yS5eDug&oh=00_AfqKYGVoz2GJCN-eY4jZc-lSO7wZ9pcXVC94zAoZqwI6Ng&oe=6977DD16', 
+                caption: 'Modern Fade' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/596820337_1955813085369842_377684176386671341_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFoEkvALjgcyIgH8yLCYb4JrRvvB-phtQetG-8H6mG1B485rvA4muaqMVAxpFyBtyzD-kx77tG_lAkmjXQANpIS&_nc_ohc=ZvPCcj0tzOgQ7kNvwHJGR0g&_nc_oc=Admg_dza1jxHcg_OkqEhKB-SLTXqsvdTUzcqgfRGqkLDjHDMFwMohmhhFkPNZ8mLi1JnBZZYP7AA-spX8gqSCd7h&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=SUxUfP612fvgcU3yS5eDug&oh=00_AfpAMy7OEwO4WPhT6uaIojggVDMXppGkU1wRiZJt0Sk1GA&oe=69780903', 
+                caption: 'Clean Cut Finish' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/584731004_1940917343526083_3883841216939499904_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF4xscWSPrw69iWbTsnJZYoght8iwVrY-qCG3yLBWtj6g4p6Nx2jN1MV8XqVFdQf7hNl1vMeNkUZ6iLRQtA92AV&_nc_ohc=RWMSNfVQbVMQ7kNvwHfAyHB&_nc_oc=Adkhhfr-Jylf1C5Hb42NCOq5mxDq-IMp5bISygazCx72rbvzSRUaLpjwxckdVKAk-Fu72JMSTCT4Rf45fXBtUtiv&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=O3E_otW4dgavTab-hP5LFg&oh=00_Afon18D5KKnqwZc9eRb5CCeoUoE8l1XlewGqPRmMp9--Ew&oe=6977F67E', 
+                caption: 'Sharp Line Design' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/594074525_1951161919168292_7901475314627732104_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFOrkDBMGTvGLkraJB7bHiltqw9cN8VShK2rD1w3xVKEu-gsp2t4WZKaKJ9gX1mzMe9UBxlkLZAe8tEq3GkQASd&_nc_ohc=_NTpiRxA59sQ7kNvwG55X22&_nc_oc=AdmXlCibMCj3miMlObNUXbKljJ38EeAUbiwpyVG-2LkuCWXf0c_5yfewnQO7lN6no00l7lHcNa3KNGDfUgALA6S2&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=CzhvNevBxszRXkmMOO5dUw&oh=00_AfpfvO1aF584cutXKGsACfcq5sILnYYKYJ_T9sptbpQmDQ&oe=6977ECB9', 
+                caption: 'Artistic Design' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/590502195_1947602436190907_567421356404619024_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeErU508g2s3enfa_6xpgfzss6UoGARKJ0CzpSgYBEonQBu2lhHFTvN_s9MiuIA-lvny_9cYwhi9wJp-EihmtZ-G&_nc_ohc=zaKuSQFB2FwQ7kNvwHheTdx&_nc_oc=AdlzLuuacPRLEL3-qwMOi45NXoNgs6EwGywEsa82iWu_dS8nh2VtRfnh8rP2Izi1i3rXaIy_UilDCmth-2JONnll&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=5B-E1BD_BnzizwOM9O5_0A&oh=00_AfrtWheiF-peCpIosK7--hSny80erzC0Qsg0_ZBcB500LA&oe=6977D516', 
+                caption: 'Precision Work' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/589595641_1947601812857636_8747172338573077267_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEpBhY_BwKWUIUZx5jv3bNus6vI5qwcEsGzq8jmrBwSwbDcz21osNEcDjqP6TA6U2esDpxEfpJvJleRmNvdRdlt&_nc_ohc=lFSQuehwoTMQ7kNvwGDqKd7&_nc_oc=AdlK_kXfgdxTqLtErb3etKIE4knYXRXGZm3zlY8-7d2TjYHHqMKj7hKxFg54yAHpYT_D_u_WhkDGWWxRxiN2H7Yt&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=5B-E1BD_BnzizwOM9O5_0A&oh=00_AfqcM_bzZeZ2blJPASLJ6gUUyI4JJOIs_OjAzprAdsko6A&oe=6978072A', 
+                caption: 'Creative Styling' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/589099460_122300124848025511_2823652440054833182_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFAuOIlE2vVCowwJ7w_PWqEE-0JjqfQ3MwT7QmOp9DczNQo-M-AcrryfduFA_rYLLa0Y1E9uT2X7Khll9KiBMFv&_nc_ohc=Ybj3ZbDDXecQ7kNvwEeaFGU&_nc_oc=AdlggP4vLJH7wx0dPtvVnrS7eJOwf1e00vaCFNXqV_bsaZuYaPcOTvuhmUDp8uTVw8--NGIQOMTyNF0UaCN7tee3&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=H5gMw8X4KL4ODOp98V-rQw&oh=00_AfqlGt97MjSv8s2tEOC7I1PYhm9O00JRGhoB--efLf0g9w&oe=6977FB05', 
+                caption: 'Style Transformation' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/589581129_122300125148025511_5715574048817784701_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGzrtk2PpI3q5PwgkLiDeNa34FRKeapd5PfgVEp5ql3k4Za2pZFhwwQCHwrZAyEm2FSxnBPZevE5iyeP3VA7Nxc&_nc_ohc=aGB5HSzwZ0AQ7kNvwG0rS1c&_nc_oc=AdkHQp0JId0Lca_N98Tjf8ButOvEvBAddFsx_QiibCjbzqIojwGlaXXsJOw3Ro6M4XbkR82DsD_z8qZXaSRmYazf&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=4ygEba8KvwzJiAXVFT18tw&oh=00_AfpBb2MYJkU5GXrQhIYgHIhqwvwntQQJJtSStRjqve7hDQ&oe=6977DBCC', 
+                caption: 'Professional Finish' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/588833977_1945897753028042_8951370607029998490_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHyYVZOnf7tpWrJiTBfk8kWGWkvGIkDffwZaS8YiQN9_DqlVIYSTXwBg-aQgqso3ktb96Imgnno65mExx9oYFhb&_nc_ohc=VoH0KGq2yrsQ7kNvwFDShYG&_nc_oc=Adl6uNn5UBYN5FcgzOnncQ3coFuKwlr8bcPEFjleO_25dfXxIkjZloxXdDdU9aCH1Wos7jNbTTsT8xTwd1Ml2skl&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=SZxggzNSKrQbOWezht1IFA&oh=00_AfoDY9f_FHZds2woNce_bMjhhpXiFTMcOOkBjnGRpyD8nA&oe=6977FA6E', 
+                caption: 'Master Craftsmanship' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/589417584_1945034409781043_5025619358952849635_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEkxwyg-_B-h3IFS6asw6MXl9XxeZdNulqX1fF5l026WsX2jLEGBN5Xmb2N73jtEROlNEF4NZJHAxSmB2NtmmSq&_nc_ohc=KTM9HyGYqTYQ7kNvwHGHj6L&_nc_oc=AdlA5CdJ6gXDUqRLkLxdyHppoRcv9UMr5gHcupUV_lO7hk9hyTBlmKZC_FnM8_bhan3tEHqRSjqoRGCM2aV2eSch&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=2qgOgwG4nVZmbnnw0njgKA&oh=00_AfpudLjcvRox0_Sze2zxUBp7xvwtZA2MXI0BNiYYdehyAg&oe=6977F33D', 
+                caption: 'Detail Oriented' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/584597848_1940811586869992_6543969786712820845_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGbpNZ16q67P01wsDoqkx1ZqeD8E1DoFtup4PwTUOgW25kDx3XITBhG3tgC1LOPwg8FXni_EZ5aMGcffkDd77b7&_nc_ohc=MXL9yxWufSYQ7kNvwHiZ5Da&_nc_oc=AdksY2A7pyUNI-PBfpjfSgiJ7UlBrybE5RioaC9gPm1bdiHyjI46XoaPiRj5Vb5LFPlvhJ01gWZt9NOQLFCyT83h&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=jYKE854WUUA4s-wZO03OMQ&oh=00_Afpz-1mMGpLv6wt5yRe-t-_TxvjorGzUEE01lmUhcn6--Q&oe=6977E8F7', 
+                caption: 'Perfect Blend' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/583911789_1938589260425558_392183095296424067_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFiiiFskLnsj-dOTh-Kh4vmF5WKo51kxD0XlYqjnWTEPXy5qdzBCYX87RA8H87f-H92aM8afn-iA2UT7-HzfUmu&_nc_ohc=xcaj1AjybwMQ7kNvwFMTgeM&_nc_oc=AdmeSxY8NuMSJOxkuBmcVBnXnkgoyOsv_kBBng_Ezz8Y0Dh6yeS5eTv7fz14dTJzVjyM4_X0P7byhXNN3OXrBBMz&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=jjkBxPrHLvsXxxju3xuWUQ&oh=00_AfoIx7OVn3y31HYYYgvjq_8iTwGpkWOXSeBJb1HPjpMoCQ&oe=6977F5D6', 
+                caption: 'Expert Technique' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/582238990_1936915943926223_4075073801060609341_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE5adAqmYHdOhTLxwyR_-2Mysg4GmTzm9_KyDgaZPOb31gS8c_cxUgH9aU8sUiTKk4qmG__oZLAQKEhCl_OfR5O&_nc_ohc=ElfhKKDvqggQ7kNvwF_KIHU&_nc_oc=AdmtQmhuzvWTgrw4IbKBIHUukZW0Bl0nzcYt3R2dXHhDc5Em_x1NObhmGQabIYIIqDSMWxOyFfHzVylIz8YLp_aS&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=xNOJ4jTtN1Ea8b-S6pzYRw&oh=00_AfqdTLTlG-QSl1Jn4SgkkCREJRpB7G9TDY0p4ugH2ti0LA&oe=69780BC3', 
+                caption: 'Smooth Fade' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/580990093_1935325397418611_7476900499634074838_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG4wNU6sYkv_fkDUDwJQPHFqvu-JVzHXPWq-74lXMdc9fcPo7_QPqZGUJzYzrrnj0inzQKlxfuX-nphrYlry_CQ&_nc_ohc=neRiCvFt5TsQ7kNvwEe_UB7&_nc_oc=AdklIYr5lenLKFP-MQa6RYTdHB5t5xdEeHjv5VEN_UwtQRLPwqglcTi8vb5cflH-WfT3PnLn6gFB4oDSQQXX9YOo&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=T3Wt7o7hMOutL-expulrSg&oh=00_AfqqA3gy-_oHPBA6ZSfCCiXLuSTsZy6r8RFeyjNcF2P6-w&oe=6977F732', 
+                caption: 'Clean Design' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/580112688_1934534870830997_5282521186779528072_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEkUhqnCjQFVFdpgHmSnUPon8Ulu60lbI-fxSW7rSVsj07yfbAyq27RX4TRAajSKyLC1aCIxzK_AvMNZARKkxQu&_nc_ohc=HKQ3Z-GhU-YQ7kNvwGoAqZK&_nc_oc=AdmPiGnSbGaz-uAYGTBEa8s2x61dYAm3boW6WIMdz33AADdK17WmQIk_vDiwiNDSvgBPEKgMoiPQpzHhSZ7bu-x7&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=_5VsR0T7M6GmnyDLMD0zgA&oh=00_Afr7fKcC7e516K7rFCGCaeMjxVjZOosocznJsWRhoQidjA&oe=6977E92C', 
+                caption: 'Artisan Touch' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/578752644_1933978420886642_3776578788729262755_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHi_iC8RjcpgFK6WpgoursiMo-1KrL6oZQyj7UqsvqhlB5YlUYyqljbUI3QpuqhQ61GuwrfJ1rcCFrOR6x4_sei&_nc_ohc=acoGGywLHYEQ7kNvwFwF9vf&_nc_oc=AdkR0CGL74NSx4EddlZ_A51t4dqvYlTZf6czq-PM-iLdcIrus-E5pmUWN5ao_s0XNwuZRZmWs3n5h-5gBSHCjKYv&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=QLAB85Wguv9hhfsw-ut4fw&oh=00_AfqqDuhC5wjr9p4gBKPZcQZZYfuClU6d6EjH6V2jDS3bBQ&oe=6977F8E4', 
+                caption: 'Sharp Finish' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/578879146_1933210450963439_2404044222559953939_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGIaqWDVVvC6rXY7YUAkbLXsP2dnIhj5CGw_Z2ciGPkIYfjqTcagx6ZAXeqnoP1W1kM3BAuK5a52aX8ZreFrLlL&_nc_ohc=-p60GNCE8k8Q7kNvwGJWKPz&_nc_oc=AdnY6bFX9HJ431B4Kpc9pa3qEB9Vh-0MfjfWDH8jBX3htY-hkvaKg54-MDXx29fUC2JjxNW65Z1zNBUa-ZvgK0WV&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=QLAB85Wguv9hhfsw-ut4fw&oh=00_Afpjpoh22QuiPeALWzc_-0mBQrUTz8kBhYe2MokSO2VgCw&oe=69780038', 
+                caption: 'Legendary Style' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/577773680_1931606727790478_908883246885231667_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG22WFlVHvqeT-2lOYMe3C5CSn5jsuCjwMJKfmOy4KPA0eRM2oidvOEMVESM87wNwbq2RLbkDp4atAXgZGoPgtz&_nc_ohc=drSKl6wrNOEQ7kNvwGV_uq5&_nc_oc=AdkM87b8QkzpI4WSJuXX0DQaHgjPcdCjXr57F3R296xr7JSs6ve2lHl1949CrwXin9GWuNVAEWSyXlNegh1ofGHv&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=2c2WLVtEW0aaNaFTI8Qhvw&oh=00_AfrsKH2q2D-py94YVWx67tboOXTuIAKrpA7FRFGhb58UCA&oe=69780BC7', 
+                caption: 'Masterful Work' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/577244397_1930373207913830_3667793160206087673_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHGFxWgIEAwXQTyr0u3ZPeczhL5BwpQfSLOEvkHClB9IlaD9mAit54OwqyYC1WAVgb8v54sMpKgkBaIKaLZc0I2&_nc_ohc=cZBbvdB-HlwQ7kNvwH8oY7q&_nc_oc=AdkoyBP8imWQQNtKf05Yye87w5jmIi8Vz4JA86tcCerWiXi-f5uHCOVfZphGH04hrniWPmvf2Lu_Nof6cDwyjiDV&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=OMsp7shnNHR2sR-4bFB6FQ&oh=00_Afr7dtlCSeuV66Q2PMz61QGVto-EV1vM73dmkz_s8qoSng&oe=6977E3DC', 
+                caption: 'Precision Artistry' 
+            },
+            { 
+                src: 'https://scontent.fdur5-1.fna.fbcdn.net/v/t39.30808-6/576458428_1929917061292778_3561256708190599463_n.jpg?stp=cp6_dst-jpg_s590x590_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH53ihaaNeXB1edPOvBTLLoD_T9Ir4UIVgP9P0ivhQhWHXwS4lUixcTL9M9Q-lpn-a5Yr8C_r_QRQWudog3xa15&_nc_ohc=6yCv4JqTSswQ7kNvwHbTdlL&_nc_oc=Adl89wLSzkne8GuitXa4PeimZ6HavT8NxbGAfzk8jsHccgDjOMWF55pAXKAR6dk13q1cROmFAlu4XeT7x1wg-V69&_nc_zt=23&_nc_ht=scontent.fdur5-1.fna&_nc_gid=OMsp7shnNHR2sR-4bFB6FQ&oh=00_Afoeat2fXLj-RtNssULepFvCuEURPqmMlqRzkUGfW1pQfw&oe=6977DFF2', 
+                caption: 'Exman Excellence' 
+            }
+        ];
+        
+        // Gallery slider functionality
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 5000; // 5 seconds
+        
+        function initGallerySlider() {
+            const slider = document.getElementById('gallerySlider');
+            const sliderNav = document.getElementById('sliderNav');
+            
+            // Clear existing content
+            slider.innerHTML = '';
+            sliderNav.innerHTML = '';
+            
+            // Create slides
+            galleryImages.forEach((image, index) => {
+                // Create slide
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.innerHTML = `
+                    <img src="${image.src}" alt="${image.caption}" loading="lazy">
+                    <div class="slide-overlay">
+                        <h3 class="slide-title">${image.caption}</h3>
+                        <p>Exman Legendary Barbershop</p>
+                    </div>
+                `;
+                slider.appendChild(slide);
+                
+                // Create navigation dot
+                const dot = document.createElement('div');
+                dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                dot.dataset.index = index;
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.addEventListener('click', () => goToSlide(index));
+                sliderNav.appendChild(dot);
+            });
+            
+            // Start automatic sliding
+            startAutoSlide();
+        }
+        
+        function goToSlide(index) {
+            const slider = document.getElementById('gallerySlider');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            currentSlide = index;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+            
+            // Reset auto slide timer
+            resetAutoSlide();
+        }
+        
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % galleryImages.length;
+            goToSlide(nextIndex);
+        }
+        
+        function prevSlide() {
+            const prevIndex = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+            goToSlide(prevIndex);
+        }
+        
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+        
+        // Debounce function for scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mainNav.contains(event.target) && !mobileMenuBtn.contains(event.target) && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Header scroll effect with debounce
+        const handleScroll = debounce(() => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }, 10);
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            const currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+            
+            // Show loading spinner
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            loadingSpinner.style.display = 'block';
+            
+            // Initialize gallery slider after a short delay
+            setTimeout(() => {
+                initGallerySlider();
+                
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+                
+                // Add event listeners for slider buttons
+                document.getElementById('prevBtn').addEventListener('click', () => {
+                    prevSlide();
+                });
+                
+                document.getElementById('nextBtn').addEventListener('click', () => {
+                    nextSlide();
+                });
+                
+                // Pause auto slide when hovering over slider
+                const sliderContainer = document.querySelector('.gallery-slider-container');
+                sliderContainer.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                sliderContainer.addEventListener('mouseleave', () => {
+                    startAutoSlide();
+                });
+                
+                // Add touch/swipe support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                sliderContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    clearInterval(slideInterval); // Pause auto slide on touch
+                }, { passive: true });
+                
+                sliderContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    startAutoSlide(); // Resume auto slide after touch
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    }
+                    
+                    if (touchEndX > touchStartX + swipeThreshold) {
+                        // Swipe right - previous slide
+                        prevSlide();
+                    }
+                }
+                
+                // Intersection Observer for section animations
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe all sections
+                document.querySelectorAll('section').forEach(section => {
+                    observer.observe(section);
+                });
+                
+                // Make hero section immediately visible
+                document.querySelector('.hero').classList.add('visible');
+                
+            }, 800); // 800ms delay to simulate loading
+            
+            // Handle image loading errors
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.log('Failed to load image:', this.src);
+                });
+            });
+            
+            // Handle orientation change for mobile
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Recalculate slider position on resize
+                    if (typeof goToSlide === 'function') {
+                        goToSlide(currentSlide);
+                    }
+                }, 250);
+            });
+            
+            // Add keyboard navigation for gallery
+            document.addEventListener('keydown', (e) => {
+                const gallerySection = document.getElementById('gallery');
+                const isGalleryVisible = gallerySection.getBoundingClientRect().top < window.innerHeight && 
+                                         gallerySection.getBoundingClientRect().bottom > 0;
+                
+                if (isGalleryVisible) {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                        e.preventDefault();
+                    }
+                }
+            });
+            
+            // Check for reduced motion preference
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (reducedMotion.matches) {
+                clearInterval(slideInterval);
+            }
+        });
+    </script>
+</body>
+</html>
